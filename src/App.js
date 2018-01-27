@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.css';
 import TopNav from './TopNav/TopNav';
 import JobTile from './JobTile/JobTile';
 
@@ -28,17 +28,6 @@ class App extends Component {
 
   render() {
 
-    const style = {
-      width: '60%',
-      margin: '16px auto',
-      border: '1px solid #eee',
-      boxShadow: '#ccc',
-      padding: '16px',
-      textAlign: 'center',
-      display: 'block',
-      color: 'black'
-    }
-
     let jobs = null;
 
     if(this.state.jobs) {
@@ -48,20 +37,19 @@ class App extends Component {
             return <JobTile
               title={job.title}
               uuid={job.uuid}
-              key={job.uuid}
-              style={style} />
+              key={job.uuid} />
           })}
         </div>
       );
     }
 
     return (
-      <div className="App">
-        <header className="App-header">
+      <div className={classes.App}>
+        <header className={classes.AppHeader}>
           <TopNav
             click={this.fetchData} />
         </header>
-        <p className="App-intro">
+        <p className={classes.AppTitle}>
           Job Search
         </p>
         {jobs}

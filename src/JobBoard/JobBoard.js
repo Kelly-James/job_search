@@ -1,9 +1,9 @@
 import React from 'react';
-import './JobBoard/JobBoard.css';
+import classes from './JobBoard/JobBoard.css';
 
 const jobBoard = (props) => {
     return (
-        <div className="jobBoardContainer">
+        <div className={classes.jobBoardContainer}>
             
         </div>
     )

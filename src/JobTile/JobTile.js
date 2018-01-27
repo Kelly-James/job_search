@@ -1,5 +1,5 @@
 import React from 'react';
-import './JobTile.css'
+import classes from './JobTile.css'
 
 const job_tile = (props) => {
     return (
