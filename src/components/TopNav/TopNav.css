@@ -1,0 +1,23 @@
+.registered {
+    font-size: .5em;
+}
+
+.TopNav {
+    background-color: #222;
+    color: white;
+    height: auto;
+    padding: 20px;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    z-index: 1000;
+}
+
+.searchSelect {
+    margin: 10px;
+    width: 100px;
+}
+
+.searchTitle {
+    color: oldlace;
+}

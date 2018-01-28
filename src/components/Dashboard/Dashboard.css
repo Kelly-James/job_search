@@ -1,0 +1,10 @@
+.Dashboard {
+    background-color: blanchedalmond;
+    border: 5px solid grey;
+    height: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    top: 140px;
+    width: 75%;
+}

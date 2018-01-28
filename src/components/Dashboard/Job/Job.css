@@ -1,0 +1,11 @@
+.Job {
+      border: 1px solid #000;
+      box-shadow: #000;
+      color: black;
+      display: block;
+      height: auto;
+      margin: 16px auto;
+      padding: 16px;
+      text-align: center;
+      width: 60%;
+}
