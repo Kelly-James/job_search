@@ -16,8 +16,7 @@ const dashboard = ( props ) => {
                     return <Job
                         title={job.title}
                         uuid={job.uuid}
-                        key={job.uuid}
-                        click={props.detailsToggle} />
+                        key={job.uuid} />
                 })}
             </div>
         );
@@ -28,7 +27,8 @@ const dashboard = ( props ) => {
                 {props.skillList.map((skill) => {
                     return <Skill
                         name={skill.name}
-                        uuid={skill.uuid} />
+                        uuid={skill.uuid}
+                        key={skill.uuid} />
                 })}
             </div>
         )

@@ -6,12 +6,14 @@ const topNav = ( props ) => {
     return (
         <div className={ classes.TopNav }>
             <h1 className={ classes.searchTitle }>Welcome to Job Search<sup className={ classes.registered }>&reg;</sup></h1>
-            <p>Please show me</p>
-            <select id="searchSelect" className={ classes.searchSelect } onChange={ props.searchConfig }>
+            <p>Browse All</p>
+            <select id="searchSelectId" className={ classes.searchSelect } onChange={ props.searchType }>
                 <option value=""></option>
                 <option value="jobs">Jobs</option>
                 <option value="skills">Skills</option>
             </select>
+            {/* <p>that contain</p>
+            <input id="searchInputId" className={ classes.searchInput } type="text" onChange={ props.changed } /> */}
             <button onClick={ props.click }>SEARCH</button>
         </div>
     )

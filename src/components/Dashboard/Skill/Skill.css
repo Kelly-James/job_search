@@ -1,11 +1,13 @@
 .Skill {
-      border: 1px solid #000;
-      box-shadow: #000;
-      color: black;
-      display: block;
-      height: auto;
-      margin: 16px auto;
-      padding: 16px;
-      text-align: center;
-      width: 60%;
+    background-color: oldlace;
+    border: 1px solid #000;
+    box-shadow: 2px 2px 4px #000;
+    color: black;
+    display: block;
+    height: auto;
+    margin: 16px auto;
+    min-width: 300px;
+    padding: 16px;
+    text-align: center;
+    width: 40%;
 }

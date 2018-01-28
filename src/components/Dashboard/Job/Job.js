@@ -9,7 +9,7 @@ const job = (props) => {
             {/* Job title will be a button which presents related skills */}
             <p>Job Title: {props.title}</p>
             <p>UUID: {props.uuid}</p>
-            <button onClick={props.click}>Show Details</button>
+            <button>Show Details</button>
         </div>
     )
     

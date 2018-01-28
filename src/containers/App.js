@@ -11,26 +11,31 @@ class App extends Component {
   state = {
     jobs: [],
     tileOpen: false,
-    searchConfig: null,
+    relatedJobs: [],
+    relatedSkills: [],
+    searchTypeState: null,
+    // searchInputState: null,
     skills: []
   }
   
   // Call to API, returns list of jobs/skills
-  getDataHandler = (searchConfig) => {
-    const url = 'http://api.dataatwork.org/v1/' + this.state.searchConfig;
+  getDataHandler = (searchTypeState) => {
+    const url = 'http://api.dataatwork.org/v1/' + this.state.searchTypeState;
     axios.get(url)
       .then(response => {
         console.log(response.data)
-        switch ( this.state.searchConfig ) {
+        switch ( this.state.searchTypeState ) {
           case 'jobs':
             this.setState({
-              jobs: response.data
-            })
+              jobs: response.data.slice(0, -1),
+              skills: []
+            });
             break;
           case 'skills':
             this.setState({
-              skills: response.data
-            })
+              skills: response.data.slice(0, -1),
+              jobs: []
+            });
             break;
           default:
             console.log('You are awesome!');
@@ -38,20 +43,42 @@ class App extends Component {
       })
       .catch((error) => {
         console.log(error);
-      })
+      });
   }
 
-  searchConfigHandler = (event) => {
-    const searchSelection = event.target.value;
-    console.log('Search Configured', searchSelection);
+  // getDataOnChangeHandler = (searchTypeState, ) => {
+  //   const url = 'http://api.dataatwork.org/v1/'
+  // }
+
+  searchTypeHandler = (event) => {
+    const searchTypeUser = event.target.value;
+    console.log('Search Type: ', searchTypeUser);
     this.setState({
-      searchConfig: searchSelection
-    })
+      searchTypeState: searchTypeUser
+    });
   }
+
+  // searchInputHandler = (event) => {
+  //   const searchInputUser = event.target.value;
+  //   console.log('Search Input: ', searchInputUser);
+  //   this.setState({
+  //     searchInputState: searchInputUser
+  //   });
+  // }
   
   // TODO: Will return related jobs/skills based on uuid
   // showRelatedHandler = (uuid) => {
-
+  //   const url = 'http://api.dataatwork.org/v1/jobs' + uuid + '/related_skills';
+  //   axios.get(url)
+  //     .then(response => {
+  //       console.log(response.data);
+  //         this.setState({
+  //           relatedSkills: response.data.slice(0, -1),
+  //         });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
   // }
 
   // TODO: Will open/close job details
@@ -59,7 +86,7 @@ class App extends Component {
   //   const showDetails = this.state.tileOpen;
   //   this.setState({
   //     tileOpen: !showDetails
-  //   })
+  //   });
   // }
 
   // TODO: Make this do something
@@ -72,11 +99,12 @@ class App extends Component {
     return (
       <div className={classes.App}>
         <TopNav
+          // changed={this.searchInputHandler}
           click={this.getDataHandler}
-          searchConfig={this.searchConfigHandler} />
+          searchType={this.searchTypeHandler} />
         <Dashboard
-          // detailToggle={this.toggleDetailsHandler} 
           jobList={this.state.jobs}
+          relatedSkills={this.state.relatedSkills}
           skillList={this.state.skills} />
       </div>
     );

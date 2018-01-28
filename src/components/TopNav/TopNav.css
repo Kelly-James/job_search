@@ -5,12 +5,19 @@
 .TopNav {
     background-color: #222;
     color: white;
-    height: auto;
+    height: 100%;
+    left: 0;
     padding: 20px;
     position: fixed;
     text-align: center;
-    width: 100%;
+    top: 0;
+    width: 20%;
     z-index: 1000;
+}
+
+.searchInput {
+    margin: 10px;
+    width: 100px;
 }
 
 .searchSelect {
