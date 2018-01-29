@@ -34,7 +34,7 @@ class App extends Component {
             });
             break;
           default:
-            console.log(':)');
+            return;
         }
       })
       .catch((error) => {

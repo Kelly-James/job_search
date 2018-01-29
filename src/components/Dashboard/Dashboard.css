@@ -1,5 +1,6 @@
 .Dashboard {
-    background-color: blanchedalmond;
+    background-image: url('https://static.pexels.com/photos/326311/pexels-photo-326311.jpeg');
+    background-size: 100% auto;
     border: 4px solid #222;
     float: right;
     height: -moz-available;       
@@ -11,5 +12,6 @@
 }
 
 .dashTitle {
+    color: oldlace;
     text-align: center;
 }

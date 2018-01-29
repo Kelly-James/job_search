@@ -1,8 +1,8 @@
 .Job {
-      background-color: oldlace;
+      background-color: #222;
       border: 1px solid #000;
       box-shadow: 2px 2px 4px #000;
-      color: black;
+      color: oldlace;
       display: block;
       height: auto;
       margin: 16px auto;

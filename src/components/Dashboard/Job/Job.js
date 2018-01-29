@@ -6,8 +6,7 @@ const job = (props) => {
     
     return (
         <div className={classes.Job}>
-            <p>Job Title: {props.title}</p>
-            <p>UUID: {props.uuid}</p>
+            <h3>Job Title: {props.title}</h3>
         </div>
     )
 }

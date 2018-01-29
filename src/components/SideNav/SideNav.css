@@ -15,12 +15,22 @@
     z-index: 1000;
 }
 
+.searchBtn {
+    background-color: oldlace;
+    height: 28px;
+}
+
 .searchInput {
     margin: 10px;
     width: 100px;
 }
 
 .searchSelect {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-color: oldlace;
+    border-radius: 5px;
+    height: 28px;
     margin: 10px;
     width: 100px;
 }

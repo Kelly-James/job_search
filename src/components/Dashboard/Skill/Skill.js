@@ -6,8 +6,7 @@ const skill = (props) => {
 
     return (
         <div className={classes.Skill}>
-            <p>Skill Description: {props.name}</p>
-            <p>UUID: {props.uuid}</p>
+            <h3>Skill Description: {props.name}</h3>
         </div>
     )
 }
