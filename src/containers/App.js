@@ -42,9 +42,9 @@ class App extends Component {
       });
   }
   
-  searchTypeHandler = (event) => {
+  // Determine the type of search being made
+  searchConfigHandler = (event) => {
     const searchTypeUser = event.target.value;
-    console.log('Search Type: ', searchTypeUser);
     this.setState({
       searchTypeState: searchTypeUser
     });
@@ -55,11 +55,9 @@ class App extends Component {
       <div className={classes.App}>
         <SideNav
           click={this.getDataHandler}
-          searchType={this.searchTypeHandler} />
+          searchConfig={this.searchConfigHandler} />
         <Dashboard
           jobList={this.state.jobs}
-          relatedSkills={this.state.relatedSkills}
-          relatedSkillsToggle={this.showRelatedSkillsHandler}
           skillList={this.state.skills} />
       </div>
     );

@@ -37,6 +37,7 @@ const dashboard = (props) => {
 
     return (
         <div className={classes.Dashboard}>
+        <h1 className={classes.dashTitle}>Search Results</h1>
             {jobs}
             {skills}
         </div>
