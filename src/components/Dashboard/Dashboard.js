@@ -4,7 +4,7 @@ import Skill from './Skill/Skill';
 
 import classes from './Dashboard.css';
 
-const dashboard = ( props ) => {
+const dashboard = (props) => {
 
     let jobs = props.jobList;
     let skills = props.skillList;
@@ -21,6 +21,7 @@ const dashboard = ( props ) => {
             </div>
         );
     }
+    
     if (skills) {
         skills = (
             <div>
@@ -31,7 +32,7 @@ const dashboard = ( props ) => {
                         key={skill.uuid} />
                 })}
             </div>
-        )
+        );
     }
 
     return (

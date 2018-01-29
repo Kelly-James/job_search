@@ -6,13 +6,10 @@ const job = (props) => {
     
     return (
         <div className={classes.Job}>
-            {/* Job title will be a button which presents related skills */}
             <p>Job Title: {props.title}</p>
             <p>UUID: {props.uuid}</p>
-            <button>Show Details</button>
         </div>
     )
-    
 }
 
 export default job;
