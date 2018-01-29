@@ -1,0 +1,30 @@
+.registered {
+    font-size: .5em;
+}
+
+.SideNav {
+    background-color: #222;
+    color: white;
+    height: 100%;
+    left: 0;
+    padding: 20px;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 20%;
+    z-index: 1000;
+}
+
+.searchInput {
+    margin: 10px;
+    width: 100px;
+}
+
+.searchSelect {
+    margin: 10px;
+    width: 100px;
+}
+
+.searchTitle {
+    color: oldlace;
+}

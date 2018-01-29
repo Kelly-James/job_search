@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TopNav from '../components/TopNav/TopNav';
+import SideNav from '../components/SideNav/SideNav';
 import Dashboard from '../components/Dashboard/Dashboard';
 
 import classes from './App.css';
@@ -14,7 +14,6 @@ class App extends Component {
     relatedJobs: [],
     relatedSkills: [],
     searchTypeState: null,
-    // searchInputState: null,
     skills: []
   }
   
@@ -98,7 +97,7 @@ class App extends Component {
 
     return (
       <div className={classes.App}>
-        <TopNav
+        <SideNav
           // changed={this.searchInputHandler}
           click={this.getDataHandler}
           searchType={this.searchTypeHandler} />
