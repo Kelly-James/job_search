@@ -6,13 +6,14 @@ import classes from './Dashboard.css';
 
 const dashboard = ( props ) => {
 
-    let jobs = props.jobList;
+    let jobs = props.jobs;
     let skills = props.skillList;
 
     if (jobs) {
         jobs = (
             <div>
-                {props.jobList.map((job) => {
+                {jobs.map((job) => {
+                    console.log('Job: ', job.title);
                     return <Job
                         title={job.title}
                         uuid={job.uuid}
@@ -24,7 +25,7 @@ const dashboard = ( props ) => {
     if (skills) {
         skills = (
             <div>
-                {props.skillList.map((skill) => {
+                {skills.map((skill) => {
                     return <Skill
                         name={skill.name}
                         uuid={skill.uuid}

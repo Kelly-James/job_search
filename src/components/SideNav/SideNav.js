@@ -1,16 +1,16 @@
 import React from 'react';
 
-import classes from './TopNav.css';
+import classes from './SideNav.css';
 
-const topNav = ( props ) => {
+const sideNav = ( props ) => {
     return (
-        <div className={ classes.TopNav }>
+        <div className={ classes.SideNav }>
             <h1 className={ classes.searchTitle }>Welcome to Job Search<sup className={ classes.registered }>&reg;</sup></h1>
             <p>Browse All</p>
             <select id="searchSelectId" className={ classes.searchSelect } onChange={ props.searchType }>
                 <option value=""></option>
-                <option value="jobs">Jobs</option>
-                <option value="skills">Skills</option>
+                <option value="GET_ALL_JOBS">Jobs</option>
+                <option value="GET_ALL_SKILLS">Skills</option>
             </select>
             {/* <p>that contain</p>
             <input id="searchInputId" className={ classes.searchInput } type="text" onChange={ props.changed } /> */}
@@ -19,4 +19,4 @@ const topNav = ( props ) => {
     )
 }
 
-export default topNav;
+export default sideNav;

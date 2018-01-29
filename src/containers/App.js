@@ -1,50 +1,54 @@
 import React, { Component } from 'react';
-import TopNav from '../components/TopNav/TopNav';
+// import axios from 'axios';
+import { connect } from 'react-redux';
+
+import SideNav from '../components/SideNav/SideNav';
 import Dashboard from '../components/Dashboard/Dashboard';
+
+import * as actionCreators from '../store/actions/index';
 
 import classes from './App.css';
 
-import axios from 'axios';
 
 class App extends Component {
 
-  state = {
-    jobs: [],
-    tileOpen: false,
-    relatedJobs: [],
-    relatedSkills: [],
-    searchTypeState: null,
-    // searchInputState: null,
-    skills: []
-  }
+  // state = {
+  //   // jobs: [],
+  //   tileOpen: false,
+  //   // relatedJobs: [],
+  //   // relatedSkills: [],
+  //   searchTypeState: null,
+  //   searchInputState: null,
+  //   // skills: []
+  // }
   
   // Call to API, returns list of jobs/skills
-  getDataHandler = (searchTypeState) => {
-    const url = 'http://api.dataatwork.org/v1/' + this.state.searchTypeState;
-    axios.get(url)
-      .then(response => {
-        console.log(response.data)
-        switch ( this.state.searchTypeState ) {
-          case 'jobs':
-            this.setState({
-              jobs: response.data.slice(0, -1),
-              skills: []
-            });
-            break;
-          case 'skills':
-            this.setState({
-              skills: response.data.slice(0, -1),
-              jobs: []
-            });
-            break;
-          default:
-            console.log('You are awesome!');
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  // getDataHandler = (searchTypeState) => {
+  //   const url = 'http://api.dataatwork.org/v1/' + this.state.searchTypeState;
+  //   axios.get(url)
+  //     .then(response => {
+  //       console.log(response.data)
+  //       switch ( this.state.searchTypeState ) {
+  //         case 'jobs':
+  //           this.setState({
+  //             jobs: response.data.slice(0, -1),
+  //             skills: []
+  //           });
+  //           break;
+  //         case 'skills':
+  //           this.setState({
+  //             skills: response.data.slice(0, -1),
+  //             jobs: []
+  //           });
+  //           break;
+  //         default:
+  //           console.log('You are awesome!');
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
 
   // getDataOnChangeHandler = (searchTypeState, ) => {
   //   const url = 'http://api.dataatwork.org/v1/'
@@ -98,17 +102,33 @@ class App extends Component {
 
     return (
       <div className={classes.App}>
-        <TopNav
+        <SideNav
           // changed={this.searchInputHandler}
-          click={this.getDataHandler}
+          click={this.props.getDataHandler}
           searchType={this.searchTypeHandler} />
-        <Dashboard
-          jobList={this.state.jobs}
-          relatedSkills={this.state.relatedSkills}
-          skillList={this.state.skills} />
+        <Dashboard />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    jobs: state.api.jobs,
+    skills: state.api.skills,
+    relatedJobs: state.api.relatedJobs,
+    relatedSkills: state.api.relatedSkills,
+    searchTypeState: null,
+    searchInputState: null,
+    tileOpen: false,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getDataHandler: (searchTypeState) => dispatch(actionCreators.getAllJobs(searchTypeState)),
+    searchTypeHandler: () => dispatch({ type: 'SEARCH_TYPE' })
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
